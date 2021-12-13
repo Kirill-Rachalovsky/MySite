@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Магазины{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Услуги для животных</h1>
+
+        <p>Тут ты найдёшь всё, что тебе нужно!</p>
+
+        {% if shop_info %}
+            {% for el in shop_info %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.shop_name }}</h3>
+                    <p>{{ el.address }}</p>
+                    <p>{{ el.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>На сайте пока не зарегистрированы магазины :(</p>
+        {% endif %}
+
+    </div>
+{% endblock %}

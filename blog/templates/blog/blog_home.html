@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Блог{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Блог о животных</h1>
+
+        <p>''Ты всегда будешь в ответе за того, кого ты приручил''</p>
+        <p>Добро пожаловать!</p>
+
+        {% if blog_info %}
+            {% for el in blog_info %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.anons }}</p>
+                    <a href="{% url 'blog-detail' el.id %}" class='btn btn-warning'>Подробнее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>На сайте пока нет статей!</p>
+        {% endif %}
+    </div>
+{% endblock %}
